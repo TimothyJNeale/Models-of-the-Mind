@@ -64,7 +64,7 @@ t = np.arange(0, T, dt)
 
 # Input current
 I = np.zeros(len(t))
-I[600:7000] = 10
+I[1000:7000] = 10
 
 # Initialize variables
 V = np.zeros(len(t))
@@ -89,11 +89,12 @@ for i in range(1, len(t)):
 
 # Plot results
 plt.figure(figsize=(10, 8))  # Define the size of the figure
+
 plt.subplot(2, 1, 1)
+plt.title('Hodgkin-Huxley Model')
 plt.plot(t, V, 'k')
 plt.xlabel('Time (ms)')
 plt.ylabel('V (mV)')
-plt.title('Hodgkin-Huxley Model')
 
 plt.subplot(2, 1, 2)
 plt.plot(t, m, 'r', label='^N+')
@@ -101,10 +102,8 @@ plt.plot(t, h, 'g', label='~N+')
 plt.plot(t, n, 'b', label='^K+')
 plt.xlabel('Time (ms)')
 plt.ylabel('Gating variables')
-
 plt.legend()
 
 # Adjust layout
 plt.tight_layout()
 plt.show()
-
