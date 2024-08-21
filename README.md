@@ -5,3 +5,4 @@
 	Hodgkin-Huxley.py
 
 ### Chapter 3 Learning to Compute
+	perceptron.py
