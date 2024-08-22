@@ -6,3 +6,4 @@
 
 ### Chapter 3 Learning to Compute
 	perceptron.py
+	multi-layer-perceptron.py
