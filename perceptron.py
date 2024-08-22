@@ -31,11 +31,16 @@ class Perceptron:
         self.epochs = epochs
         self.errors = []
 
+
     def predict(self, x):
-        if np.dot(self.weights, x) + self.bias > 0:
-            return 1
-        else:
-            return 0
+        x = np.atleast_1d(x)  # Ensure x is at least 1-dimensional
+        if x.shape[0] != self.input_size:
+            raise ValueError(f"Input shape {x.shape} does not match expected shape ({self.input_size},)")
+        #print(f"Predict input x: {x}")  # Debug print
+        result = np.dot(self.weights, x) + self.bias
+        #print(f"Dot product result: {result}")  # Debug print
+        return 1 if result > 0 else 0
+
     
     def train(self, X, y):
         for _ in range(self.epochs):
@@ -70,21 +75,25 @@ class Perceptron:
 # Example usage
 
 def gate_logic(X, y, epochs=1000):
-    perceptron = Perceptron(input_size=2, epochs=10)
+    input_size = X.shape[1]
+    perceptron = Perceptron(input_size=input_size, epochs=epochs)
     perceptron.train(X, y)
 
     print(f"weights: {perceptron.get_weights()}")
     print(f"bias: {perceptron.get_bias()}")
 
-    print(f"\npredictions")
+    print(f"\nPredictions")
     # for each input pair, print the predicted output
     for i in range(X.shape[0]):
         print(f"inputs {X[i]} -> {perceptron.predict(X[i])}")
 
-    print(f"\nAccuracy: {perceptron.accuracy(X, y)}\n\n")
+    accuracy = perceptron.accuracy(X, y)
+    print(f"Accuracy: {accuracy * 100:.2f}%")
+    #print(f"Errors: {perceptron.errors}")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
 
-    # perceptron.plot()
+    #perceptron.plot()
 
 if __name__ == '__main__':
 
@@ -100,33 +109,33 @@ if __name__ == '__main__':
 
     gate_logic(X, y)
 
-    # print("\nNOT gate")
-    # X = np.array([[0], [1]])
-    # y = np.array([1, 0])
+    print("\nNOT gate")
+    X = np.array([[0], [1]])
+    y = np.array([1, 0])
 
-    # gate_logic(X, y)
+    gate_logic(X, y)
 
-    # print("\nNAND gate")
-    # X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    # y = np.array([1, 1, 1, 0])
+    print("\nNAND gate")
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    y = np.array([1, 1, 1, 0])
 
-    # gate_logic(X, y)
+    gate_logic(X, y)
 
-    # print("\nNOR gate")
-    # X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    # y = np.array([1, 0, 0, 0])
+    print("\nNOR gate")
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    y = np.array([1, 0, 0, 0])
 
-    # gate_logic(X, y)
+    gate_logic(X, y)
 
-    # print("\nXOR gate")
-    # X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    # y = np.array([0, 1, 1, 0])
+    print("\nXOR gate output=1 only when inputs are different")
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    y = np.array([0, 1, 1, 0])
 
-    # gate_logic(X, y)
+    gate_logic(X, y)
 
-    # print("\nXNOR gate")
-    # X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    # y = np.array([1, 0, 0, 1])
+    print("\nXNOR gate output=1 only when inputs are the same")
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    y = np.array([1, 0, 0, 1])
 
-    # gate_logic(X, y)
+    gate_logic(X, y)
 
