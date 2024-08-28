@@ -7,3 +7,6 @@
 ### Chapter 3 Learning to Compute
 	perceptron.py
 	multi-layer-perceptron.py
+
+### Chapter 4 Making and Maintaining Memories
+	hopfield.py
