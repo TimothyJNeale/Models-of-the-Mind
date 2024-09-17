@@ -43,7 +43,7 @@ class HopfieldNetwork:
                                         self.weights[i, j] = 1/n_samples * np.sum(X[:, i] * X[:, j])
 
                 
-        def recall(self, pattern, n_iterations=1000):
+        def recall(self, pattern, n_iterations=100):
                 for _ in range(n_iterations):
                         for i in range(self.n_neurons):
                                 activation = np.dot(self.weights[i], pattern)
@@ -58,7 +58,7 @@ class HopfieldNetwork:
         
         def set_weights(self, weights):
                 self.weights = weights
-                
+
         def is_stabel(self, pattern):
                 return np.array_equal(pattern, self.recall(pattern))
         
@@ -76,8 +76,8 @@ if __name__ == "__main__":
         print("Patterns remembered:")
         for pattern in patterns:
                 print(pattern)
-        weights = network.get_weights()
-        print("\nWeights:\n", weights)
+        # weights = network.get_weights()
+        # print("\nWeights:\n", weights)
         
         # Recall a pattern
         print("\n---------------------------------")
@@ -85,6 +85,8 @@ if __name__ == "__main__":
         print("Pattern to recall:", pattern)
         recalled_pattern = network.recall(pattern)
         print("Recalled pattern: ", recalled_pattern)
+        stable = network.is_stabel(recalled_pattern)
+        print("Stable: ", stable)
         
         energy = network.energy(recalled_pattern)
         print("Energy of recalled pattern:", energy)
@@ -100,6 +102,8 @@ if __name__ == "__main__":
         print("Pattern to recall:", pattern)
         recalled_pattern = network.recall(pattern)
         print("Recalled pattern:", recalled_pattern)
+        stable = network.is_stabel(recalled_pattern)
+        print("Stable: ", stable)
         
         energy = network.energy(recalled_pattern)
         print("Energy of recalled pattern:", energy)
