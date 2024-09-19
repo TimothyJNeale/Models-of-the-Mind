@@ -5,8 +5,21 @@ K is assumed to be much smaller than N.
 
                 1 << K << N
 
-Looking at the case of a largw K and a constant externalinput to the network, the main input to a cell of type j (either excitiry or inhibitory) 
-is given by the sum of the external input and the recurrent input. The recurrent input is the sum of the input from the other neurons of the same type.
+The recurrent input is given by the sum of the input from the other neurons of the same type. The external input is assumed to be Gaussian 
+with mean m and standard deviation s.
+
+The activity of the neurons is given by the following equation:
+
+                r_i = tanh(I_i + sum(J_ij * r_j))
+
+where r_i is the activity of neuron i, I_i is the external input to neuron i, J_ij is the synaptic weight from neuron j to neuron i, and the sum is 
+over all neurons j.
+
+The synaptic weights are drawn from a Gaussian distribution with mean 0 and standard deviation g/sqrt(N). The activity of the neurons is updated
+using the above equation for T time steps.
+
+The code below simulates the mean field model for a balanced network and plots the activity of the neurons and the synaptic weights.It also plots the
+distribution of the synaptic weights, the activity of the neurons, the external input, and the total input to the neurons.
 
 '''
 
