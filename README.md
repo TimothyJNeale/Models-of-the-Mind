@@ -10,3 +10,6 @@
 
 ### Chapter 4 Making and Maintaining Memories
 	hopfield.py
+
+### Chapter 5 Excitation and Inhibition
+	mean-field.py
