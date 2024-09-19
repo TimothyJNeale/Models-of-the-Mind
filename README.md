@@ -13,3 +13,6 @@
 
 ### Chapter 5 Excitation and Inhibition
 	mean-field.py
+
+### Chapter 6 Stages of Sight
+	See code associated with Kaggle dataset https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000 for use of image ecognnition noteboks.
