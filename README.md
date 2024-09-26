@@ -16,3 +16,7 @@
 
 ### Chapter 6 Stages of Sight
 	See code associated with Kaggle dataset https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000 for use of image recognnition noteboks. 
+
+### Chapter 7 Cracking the Neural Code
+	information.py
+	Shannon-entropy.py
