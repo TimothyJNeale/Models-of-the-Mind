@@ -20,3 +20,8 @@
 ### Chapter 7 Cracking the Neural Code
 	information.py
 	Shannon-entropy.py
+
+### Chapter 8 Movement in low Dimensions
+	PCA.py
+
+###
