@@ -24,4 +24,6 @@
 ### Chapter 8 Movement in low Dimensions
 	PCA.py
 
-###
+### Chapter 9 From Structire to Function
+	clustering-functions.py
+
