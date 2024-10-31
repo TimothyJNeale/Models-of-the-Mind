@@ -27,3 +27,6 @@
 ### Chapter 9 From Structire to Function
 	clustering-functions.py
 
+### Chapter 10 Making Rational Decisions
+	bayes.py
+
