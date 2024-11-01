@@ -30,3 +30,5 @@
 ### Chapter 10 Making Rational Decisions
 	bayes.py
 
+### Chapter 11 How Rewards Guide Actions
+	bellman.py - a very basic look at reinforcement learning, there are mny better examples in Udemy libtsry or on Kaggle
