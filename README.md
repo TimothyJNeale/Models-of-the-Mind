@@ -32,3 +32,6 @@
 
 ### Chapter 11 How Rewards Guide Actions
 	bellman.py - a very basic look at reinforcement learning, there are mny better examples in Udemy libtsry or on Kaggle
+
+### Chapter 12 Grand Unified Theories of the Brain
+	free-energy.py
